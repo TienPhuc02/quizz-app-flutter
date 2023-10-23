@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quizzler_flutter/question.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,10 +34,19 @@ class BodyHomeScreen extends StatefulWidget {
 class _BodyHomeScreenState extends State<BodyHomeScreen> {
   @override
   List<Widget> arrayIconCheckList = <Widget>[];
-  List<String> arrayQuestionData = <String>[
-    "Con người có 5 ngón tay trên mỗi tay.",
-    "Trái đất quay quanh Mặt Trời. ",
-    "Gọi là nước sôi ở mức 100 độ C (212 độ F) dưới áp suất tiêu chuẩn."
+  // List<String> arrayQuestionData = <String>[
+  //   "Con người có 5 ngón tay trên mỗi tay.",
+  //   "Trái đất quay quanh Mặt Trời. ",
+  //   "Gọi là nước sôi ở mức 100 độ C (212 độ F) dưới áp suất tiêu chuẩn."
+  // ];
+  // List<bool> arrayAnswer = [true, true, true];
+  // Question q1 = Question(q: "Con người có 5 ngón tay trên mỗi tay.", a: true);
+  List<Question> arrayListQuestion = [
+    Question(q: "Con người có 5 ngón tay trên mỗi tay.", a: true),
+    Question(q: "Trái đất quay quanh Mặt Trời. ", a: true),
+    Question(
+        q: "Gọi là nước sôi ở mức 100 độ C (212 độ F) dưới áp suất tiêu chuẩn.",
+        a: true),
   ];
   int numberQuestion = 0;
   Widget build(BuildContext context) {
@@ -48,7 +58,7 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
               margin: const EdgeInsets.fromLTRB(10, 300, 0, 100),
               child: Center(
                 child: Text(
-                  arrayQuestionData[numberQuestion],
+                  arrayListQuestion[numberQuestion].questionText,
                   style: const TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
@@ -78,13 +88,15 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
             ),
             GestureDetector(
               onTap: () {
+                arrayIconCheckList.add(
+                  const Icon(
+                    FontAwesomeIcons.xmark,
+                    color: Colors.red,
+                  ),
+                );
                 setState(() {
-                  arrayIconCheckList.add(
-                    const Icon(
-                      FontAwesomeIcons.xmark,
-                      color: Colors.red,
-                    ),
-                  );
+                  numberQuestion++;
+                  print(numberQuestion);
                 });
               },
               child: Container(
