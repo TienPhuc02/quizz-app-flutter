@@ -1,33 +1,38 @@
 import "package:quizzler_flutter/question.dart";
-import 'package:quizzler_flutter/question.dart';
 
 class Quizz {
   int _numberQuestion = 0;
   final List<Question> _arrayListQuestion = [
-    Question(q: "Con người có 5 ngón tay trên mỗi tay.", a: true),
-    Question(q: "Trái đất quay quanh Mặt Trời. ", a: true),
-    Question(q: "Mặt trăng có ánh sáng tự nhiên.", a: false),
+    Question("Con người có 5 ngón tay trên mỗi tay.", true),
+    Question("Trái đất quay quanh Mặt Trời. ", true),
+    Question("Mặt trăng có ánh sáng tự nhiên.", false),
     Question(
-        q: "Gọi là nước sôi ở mức 100 độ C (212 độ F) dưới áp suất tiêu chuẩn.",
-        a: true),
-    Question(q: " Cá heo là một loài cá.", a: false),
-    Question(q: "Sói là một loài động vật ăn cỏ.", a: false),
-    Question(q: "Nước là một loại hóa chất độc hại. ", a: false),
-    Question(q: "Con người chỉ sử dụng 10% bộ não của họ.", a: false),
+        "Gọi là nước sôi ở mức 100 độ C (212 độ F) dưới áp suất tiêu chuẩn.",
+        true),
+    Question(" Cá heo là một loài cá.", false),
+    Question("Sói là một loài động vật ăn cỏ.", false),
+    Question("Nước là một loại hóa chất độc hại. ", false),
+    Question("Con người chỉ sử dụng 10% bộ não của họ.", false),
     Question(
-        q: "Chuột có một cuộc sống ngắn hơn khi sống trong tự nhiên so với trong môi trường nhà cửa.",
-        a: false),
-    Question(q: "Hoa hồng là loài hoa có màu trắng duy nhất.", a: false),
-    Question(q: "Rồng là một loài động vật có thực. ", a: false),
-    Question(q: "Cá voi là loài động vật biển lớn nhất. ", a: true),
-    Question(q: " Bắc cực là nơi lạnh nhất trên trái đất.", a: false),
+        "Chuột có một cuộc sống ngắn hơn khi sống trong tự nhiên so với trong môi trường nhà cửa.",
+        false),
+    Question("Hoa hồng là loài hoa có màu trắng duy nhất.", false),
+    Question("Rồng là một loài động vật có thực. ", false),
+    Question("Cá voi là loài động vật biển lớn nhất. ", true),
+    Question(" Bắc cực là nơi lạnh nhất trên trái đất.", false),
   ];
   void nextQuestion() {
     if (_numberQuestion < _arrayListQuestion.length - 1) {
       _numberQuestion++;
-    } else {
-      _numberQuestion = 0;
     }
+  }
+
+  bool isFinished() {
+    return _numberQuestion >= _arrayListQuestion.length - 1;
+  }
+
+  void reset() {
+    _numberQuestion = 0;
   }
 
   String getQuestionText() {
