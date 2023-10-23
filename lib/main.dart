@@ -71,6 +71,13 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
                     color: Colors.green,
                   ),
                 );
+                bool correctAnswer =
+                    arrayListQuestion[numberQuestion].questionAnswer;
+                if (correctAnswer == true) {
+                  print("Bạn trả lời đúng");
+                } else {
+                  print("Bạn trả lời sai");
+                }
                 setState(() {
                   numberQuestion++;
                   print(numberQuestion);
@@ -94,6 +101,13 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
                     color: Colors.red,
                   ),
                 );
+                bool correctAnswer =
+                    arrayListQuestion[numberQuestion].questionAnswer;
+                if (correctAnswer == false) {
+                  print("Bạn trả lời đúng");
+                } else {
+                  print("Bạn trả lời sai");
+                }
                 setState(() {
                   numberQuestion++;
                   print(numberQuestion);
